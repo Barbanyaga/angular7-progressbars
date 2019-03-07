@@ -1,3 +1,8 @@
+/*==============================================================
+ * Copyright (c) 2018,Peter Barbanyaga Date: 03.2019
+ * Version IDE: MS VS 2012
+ * Designed by: Peter Barbanyaga / barbanyaga@gmail.com [03.2019]
+ *=============================================================*/
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
