@@ -11,6 +11,8 @@ export class HomeComponent {
   public max: number = 100;
   public current: number = 50;
   public yearData: YearData;
+  http: HttpClient;
+  baseUrl: string;
 
   getRandomColor() {
     var color1 = Math.floor(0x1000000 * Math.random()).toString(16);
@@ -21,14 +23,16 @@ export class HomeComponent {
   }
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<YearData[]>(baseUrl + 'api/values').subscribe(result => {
-      this.values = result;
-      this.yearData = result[0];
-    }, error => console.error(error));
+    this.http = http;
+    this.baseUrl = baseUrl;
+    this.onSelected(2018);
   }
 
   onSelected(year: number) {
-    alert(year);
+    this.http.get<YearData[]>(this.baseUrl + 'api/values/byYear?year=' + year).subscribe(result => {
+      this.values = result;
+      this.yearData = result[0];
+    }, error => console.error(error));
   }
 }
 

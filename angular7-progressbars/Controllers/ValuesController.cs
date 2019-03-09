@@ -16,8 +16,9 @@ namespace angular7_progressbars.Controllers
 	public class ValuesController : Controller
 	{
 		// GET: api/<controller>
-		[HttpGet]
-		public IEnumerable<YearData> Get()
+		// api/values/byYear?year=2017
+		[HttpGet("byYear")]
+		public IEnumerable<YearData> Get([FromQuery]int year)
 		{
 			var res = new YearData[] {
 				new YearData(){
@@ -69,7 +70,7 @@ namespace angular7_progressbars.Controllers
 					}
 				},
 			};
-			return res;
+			return res.Where(x => x.Year == year);
 		}
 	}
 }
