@@ -43,14 +43,15 @@
       </div>
     </div>
     <div id="selectYear" class="col-sm-2">
-      <div class="dropdown">
+      <!--<div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Year
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a *ngFor="let item of values" class="dropdown-item" href="#">{{item.year}}</a>
         </div>
-      </div>
+      </div>-->
+      <app-year-selector (selected)="onSelected($event)" ></app-year-selector>
     </div>
   </div>
 </div>

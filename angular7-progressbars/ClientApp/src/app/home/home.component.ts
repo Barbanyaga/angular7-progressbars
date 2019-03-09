@@ -26,6 +26,10 @@ export class HomeComponent {
       this.yearData = result[0];
     }, error => console.error(error));
   }
+
+  onSelected(year: number) {
+    alert(year);
+  }
 }
 
 

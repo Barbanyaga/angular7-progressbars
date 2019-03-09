@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { YearSelectorComponent } from './year-selector/year-selector.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
@@ -17,6 +18,7 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
+    YearSelectorComponent,
     FetchDataComponent
   ],
   imports: [
