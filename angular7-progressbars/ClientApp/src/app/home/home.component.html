@@ -4,15 +4,16 @@
     <div class="col-sm-6">
       <div class="container">
         <div *ngFor="let cat of yearData.categories" style="margin: 6px,6px,0,6px">
-          <h5>{{cat.title}}</h5>
-          <div class="progress">
-            <!--<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"></div>-->
-            <div class="progress-bar" role="progressbar"
-                 [style.background-color]="getRandomColor()"
-                 [attr.aria-valuenow]="cat.value"
-                 [style.width.%]="cat.value/cat.maxValue*100"
-                 [attr.aria-valuemax]="cat.maxValue"
-                 aria-valuemin="0"></div>
+
+              <h5>{{cat.title}}</h5>
+              <div class="progress" style="height:10px;">
+                <!--<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"></div>-->
+                <div class="progress-bar" role="progressbar"
+                     [style.background]="getRandomColor()"
+                     [attr.aria-valuenow]="cat.value"
+                     [style.width.%]="cat.value/cat.maxValue*100"
+                     [attr.aria-valuemax]="cat.maxValue"
+                     aria-valuemin="0"></div>
           </div>
         </div>
       </div>
