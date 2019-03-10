@@ -12,6 +12,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { CircleProgressComponent } from './circle-progress/circle-progress.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,31 @@ import { CircleProgressComponent } from './circle-progress/circle-progress.compo
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    // Specify ng-circle-progress as an import
+    NgCircleProgressModule.forRoot({
+      "backgroundStrokeWidth": 0,
+      "backgroundPadding": -5,
+      "radius": 47,
+      "space": -10,
+      "unitsFontSize": "31",
+      "outerStrokeGradient": true,
+      "outerStrokeWidth": 7,
+      "outerStrokeColor": "#9075B9",
+      "outerStrokeGradientStopColor": "#53a9ff",
+      "innerStrokeColor": "transparent",
+      "innerStrokeWidth": 10,
+      "title": "UI",
+      "titleFontWeight": "600",
+      "titleFontSize": "25",
+      "subtitleFontSize": "18",
+      "animateTitle": false,
+      "animationDuration": 300,
+      "showTitle": true,
+      "showUnits": false,
+      "showBackground": false,
+      "showZeroOuterStroke": false,
+      "showSubtitle":false
+    }),
     HttpClientModule,
     RoundProgressModule,
     FormsModule,

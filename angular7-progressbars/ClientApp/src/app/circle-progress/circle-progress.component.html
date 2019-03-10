@@ -1,11 +1,17 @@
 <div class="main">
   <h6>{{title}}</h6>
-  <round-progress id="circle1"
+  <!-- v.1
+      <round-progress id="circle1"
                   [rounded]="true"
                   [radius]="50"
                   [stroke]="10"
                   [color]="color"
                   [background]="'#515151'"
                   [current]="value"
-                  [max]="100"></round-progress>
+                  [max]="100"></round-progress>-->
+
+  <!-- v.2 -->
+  <circle-progress [percent]="value/maxValue*100"
+                   [outerStrokeGradientStopColor]="color"
+                   [title]="content" ></circle-progress>
 </div>

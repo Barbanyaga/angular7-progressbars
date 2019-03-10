@@ -25,9 +25,9 @@
             </div>
           </div>
           <div class="carousel-item">
-            <div class="container">
-              <div *ngFor="let cat of yearData.categories" style="margin: 6px,6px,0,6px">
-                <h5>{{cat.title}}</h5>
+            <div class="row" *ngFor="let cat of yearData.categories" style="margin: 6px,6px,0,6px">
+              <div class="col-md-6">
+                <label>{{cat.title}}</label>
                 <div class="progress" style="height:10px;">
                   <!--<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"></div>-->
                   <div class="progress-bar" role="progressbar"
@@ -55,10 +55,18 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-6" >
-            <app-circle-progress title="Circle1" [value]="yearData.circle1.value" [color]="'#5E56A8'"> </app-circle-progress>
+            <app-circle-progress [title]="yearData.circle1.name"
+                                 [value]="yearData.circle1.value"
+                                 [maxValue]="yearData.circle1.maxValue"
+                                 [color]="'#2F3992'"
+                                 [content]="'' + yearData.circle1.value + '/' + yearData.circle1.maxValue"> </app-circle-progress>
           </div>
           <div class="col-sm-6" style="display: flex; align-items: center; flex-direction: column;">
-            <app-circle-progress title="Circle2" [value]="yearData.circle2.value"> </app-circle-progress>
+            <app-circle-progress [title]="yearData.circle2.name"
+                                 [value]="yearData.circle2.value"
+                                 [maxValue]="yearData.circle2.maxValue"
+                                 [color]="'#79A8AB'"
+                                 [content]="'' + yearData.circle2.value + '%'"> </app-circle-progress>
           </div>
         </div>
       </div>

@@ -12,12 +12,15 @@ namespace angular7_progressbars.DTO
 {
 	public class CircleData
 	{
+		public string Name { get; set; }
 		public int Value { get; set; }
+		public int MaxValue { get; set; }
 
-
-		public CircleData(int value)
+		public CircleData(string name, int value, int maxValue)
 		{
-			Value = value;
+			this.Name = name;
+			this.Value = value;
+			this.MaxValue = maxValue;
 		}
 
 	}

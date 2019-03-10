@@ -10,7 +10,9 @@ export class CircleProgressComponent {
 
   @Input() title: string;
   @Input() value: number;
+  @Input() maxValue: number;
   @Input() color: string = '#7CA8A8';
+  @Input() content: string;
 
   getRandomGradient() {
     var color1 = Math.floor(0x1000000 * Math.random()).toString(16);

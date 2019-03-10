@@ -23,8 +23,8 @@ namespace angular7_progressbars.Controllers
 			var res = new YearData[] {
 				new YearData(){
 					Year = 2017,
-					Circle1 = new CircleData (50),
-					Circle2 = new CircleData (89),
+					Circle1 = new CircleData ("Circle1", 30, 40),
+					Circle2 = new CircleData ("Circle2", 60, 100),
 					Categories = new CategoryData[]
 					{
 						new CategoryData("cat1", 4, 10),
@@ -39,8 +39,8 @@ namespace angular7_progressbars.Controllers
 				},
 				new YearData(){
 					Year = 2018,
-					Circle1 = new CircleData (30),
-					Circle2 = new CircleData (70),
+					Circle1 = new CircleData ("Circle3", 10, 60),
+					Circle2 = new CircleData ("Circle4", 75, 100),
 					Categories = new CategoryData[]
 					{
 						new CategoryData("cat1", 2, 10),
@@ -55,8 +55,8 @@ namespace angular7_progressbars.Controllers
 				},
 				new YearData(){
 					Year = 2019,
-					Circle1 = new CircleData (30),
-					Circle2 = new CircleData (70),
+					Circle1 = new CircleData ("Circle5", 30, 80),
+					Circle2 = new CircleData ("Circle6", 33, 100),
 					Categories = new CategoryData[]
 					{
 						new CategoryData("cat1", 7, 10),
