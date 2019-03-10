@@ -12,6 +12,7 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { CircleProgressComponent } from './circle-progress/circle-progress.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { LineProgressComponent } from './line-progress/line-progress.component';
+import { WebService } from '../services/web.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { LineProgressComponent } from './line-progress/line-progress.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
     ])
   ],
-  providers: [],
+  providers: [WebService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

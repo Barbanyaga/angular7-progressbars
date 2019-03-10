@@ -39,7 +39,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\datamodel\CategData.ts" />
+    <None Remove="ClientApp\src\datamodel\CircleData.ts" />
+    <None Remove="ClientApp\src\datamodel\YearData.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\datamodel\CircleData.ts" />
+    <TypeScriptCompile Include="ClientApp\src\datamodel\CategData.ts" />
+    <TypeScriptCompile Include="ClientApp\src\datamodel\YearData.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

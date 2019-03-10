@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { forEach } from '@angular/router/src/utils/collection';
+import { WebService } from '../../services/web.service';
 
 @Component({
   selector: 'app-home',
@@ -18,23 +18,20 @@ export class HomeComponent {
   http: HttpClient;
   baseUrl: string;
   public fakeArray = new Array(4);
+    webService: WebService;
 
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.http = http;
-    this.baseUrl = baseUrl;
+  constructor(webService: WebService) {
+    this.webService = webService;
     this.onSelected(2018);
   }
 
 
   onSelected(year: number) {
-    this.http.get<YearData[]>(this.baseUrl + 'api/values/byYear?year=' + year).subscribe(result => {
+    this.webService.getYearData(year).subscribe(result => {
       this.values = result;
       this.yearData = result[0];
-
       this.createPagedList(this.yearData.categories);
-
-
     }, error => console.error(error));
   }
   createPagedList(categories: CategData[]): any {
@@ -51,24 +48,10 @@ export class HomeComponent {
 }
 
 
-interface YearData {
-  year: number;
-  circle1: CircleData;
-  circle2: CircleData;
-  categories: CategData[];
-}
 
-interface CircleData {
-  name;
-  value;
-  maxValue;
-}
 
-interface CategData {
-  title: string;
-  value: number;
-  maxValue: number;
-}
+
+
 
 class PageCategs {
   public categories: CategData[];
