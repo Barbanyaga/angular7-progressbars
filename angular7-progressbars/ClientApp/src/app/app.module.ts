@@ -11,6 +11,7 @@ import { YearSelectorComponent } from './year-selector/year-selector.component';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
 import { CircleProgressComponent } from './circle-progress/circle-progress.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { LineProgressComponent } from './line-progress/line-progress.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     HomeComponent,
     YearSelectorComponent,
     CircleProgressComponent,
+    LineProgressComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -2,40 +2,16 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6">
-
-
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item " [ngClass]="{'active' : j == 0 }" *ngFor="let page of pagedList; let j = index;">
             <div class="container">
-              <div class="row" *ngFor="let cat of yearData.categories" style="margin: 6px,6px,0,6px">
-                <div class="col-md-6" >
-                  <label>{{cat.title}}</label>
-                  <div class="progress" style="height:10px;">
-                    <!--<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"></div>-->
-                    <div class="progress-bar" role="progressbar"
-                         [style.background]="getRandomColor()"
-                         [attr.aria-valuenow]="cat.value"
-                         [style.width.%]="cat.value/cat.maxValue*100"
-                         [attr.aria-valuemax]="cat.maxValue"
-                         aria-valuemin="0"></div>
-                  </div>
+              <div class="row" *ngFor="let a of fakeArray; let i=index; ">
+                <div class="col-md-6" *ngIf="page.categories && page.categories.length > i">
+                  <app-line-progress [title]="page.categories[i].title" [value]="page.categories[i].value" [maxValue]="page.categories[i].maxValue"></app-line-progress>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="row" *ngFor="let cat of yearData.categories" style="margin: 6px,6px,0,6px">
-              <div class="col-md-6">
-                <label>{{cat.title}}</label>
-                <div class="progress" style="height:10px;">
-                  <!--<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"></div>-->
-                  <div class="progress-bar" role="progressbar"
-                       [style.background]="getRandomColor()"
-                       [attr.aria-valuenow]="cat.value"
-                       [style.width.%]="cat.value/cat.maxValue*100"
-                       [attr.aria-valuemax]="cat.maxValue"
-                       aria-valuemin="0"></div>
+                <div class="col-md-6" *ngIf="page.categories && page.categories.length > i+4">
+                  <app-line-progress [title]="page.categories[i+4].title" [value]="page.categories[i+4].value" [maxValue]="page.categories[i+4].maxValue"></app-line-progress>
                 </div>
               </div>
             </div>
@@ -54,19 +30,19 @@
     <div id="circles" class="col-sm-4">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6" >
+          <div class="col-sm-6">
             <app-circle-progress [title]="yearData.circle1.name"
                                  [value]="yearData.circle1.value"
                                  [maxValue]="yearData.circle1.maxValue"
                                  [color]="'#2F3992'"
-                                 [content]="'' + yearData.circle1.value + '/' + yearData.circle1.maxValue"> </app-circle-progress>
+                                 [content]="'' + yearData.circle1.value + '/' + yearData.circle1.maxValue"></app-circle-progress>
           </div>
           <div class="col-sm-6" style="display: flex; align-items: center; flex-direction: column;">
             <app-circle-progress [title]="yearData.circle2.name"
                                  [value]="yearData.circle2.value"
                                  [maxValue]="yearData.circle2.maxValue"
                                  [color]="'#79A8AB'"
-                                 [content]="'' + yearData.circle2.value + '%'"> </app-circle-progress>
+                                 [content]="'' + yearData.circle2.value + '%'"></app-circle-progress>
           </div>
         </div>
       </div>

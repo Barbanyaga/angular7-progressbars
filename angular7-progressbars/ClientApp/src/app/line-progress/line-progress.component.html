@@ -1,0 +1,11 @@
+  <div class="progress-container" style="margin-top: 10px;">
+    <label class="progress-label">{{title}}</label>
+    <div class="progress" style="height:10px;">
+      <div class="progress-bar" role="progressbar"
+           [style.background]="getRandomGradient()"
+           [attr.aria-valuenow]="value"
+           [style.width.%]="value/maxValue*100"
+           [attr.aria-valuemax]="maxValue"
+           aria-valuemin="0"></div>
+    </div>
+  </div>

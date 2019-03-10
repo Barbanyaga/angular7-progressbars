@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-home',
@@ -7,21 +8,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
+  readonly PAGE_SIZE: number = 8;
   public values: YearData[];
   public max: number = 100;
   public current: number = 50;
   public yearData: YearData;
+  public pagedList: PageCategs[];
+
   http: HttpClient;
   baseUrl: string;
+  public fakeArray = new Array(4);
 
-  getRandomColor() {
-    var color1 = Math.floor(0x1000000 * Math.random()).toString(16);
-    var resultColor1 = '#' + ('000000' + color1).slice(-6);
-    var color2 = Math.floor(0x1000000 * Math.random()).toString(16);
-    var resultColor2 = '#' + ('000000' + color2).slice(-6);
-    return "linear-gradient(-90deg, " + resultColor1 + ", " + resultColor2 + ")";
-  }
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.http = http;
@@ -29,11 +26,27 @@ export class HomeComponent {
     this.onSelected(2018);
   }
 
+
   onSelected(year: number) {
     this.http.get<YearData[]>(this.baseUrl + 'api/values/byYear?year=' + year).subscribe(result => {
       this.values = result;
       this.yearData = result[0];
+
+      this.createPagedList(this.yearData.categories);
+
+
     }, error => console.error(error));
+  }
+  createPagedList(categories: CategData[]): any {
+    let page = categories;
+    let res: PageCategs[] = new Array();
+    while (categories.length > 0) {
+      page = categories.slice(0, this.PAGE_SIZE);
+      categories = categories.slice(this.PAGE_SIZE);
+      res.push(new PageCategs(page));
+    } ;
+
+    this.pagedList = res;
   }
 }
 
@@ -57,4 +70,11 @@ interface CategData {
   maxValue: number;
 }
 
+class PageCategs {
+  public categories: CategData[];
+
+  constructor(categs: CategData[]) {
+    this.categories = categs;
+  }
+}
 

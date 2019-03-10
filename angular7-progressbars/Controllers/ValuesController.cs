@@ -35,6 +35,12 @@ namespace angular7_progressbars.Controllers
 						new CategoryData("cat6", 3, 10),
 						new CategoryData("cat7", 4, 10),
 						new CategoryData("cat8", 4, 10),
+						new CategoryData("cat11", 4, 10),
+						new CategoryData("cat12", 2, 10),
+						new CategoryData("cat13", 7, 12),
+						new CategoryData("cat14", 4, 10),
+						new CategoryData("cat15", 8, 10),
+						new CategoryData("cat16", 3, 10),
 					}
 				},
 				new YearData(){
