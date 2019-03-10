@@ -1,1 +1,31 @@
-﻿
+
+.base_item {
+  cursor: pointer;
+}
+
+.selected {
+  @extend .base_item;
+  font-size: medium;
+  font-weight: bold;
+  margin-left: 2px;
+  color: #D7D7D7;
+}
+
+.second {
+  @extend .base_item;
+  font-size: small;
+}
+
+.third {
+  @extend .base_item;
+  font-size: small;
+  color: #393939;
+}
+
+.circle {
+  background: #A4453F;
+  width: 7px;
+  height: 7px;
+  margin-left:5px;
+  border-radius: 50%;
+}

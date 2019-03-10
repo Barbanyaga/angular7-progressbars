@@ -2,21 +2,58 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-6">
-      <div class="container">
-        <div *ngFor="let cat of yearData.categories" style="margin: 6px,6px,0,6px">
 
-              <h5>{{cat.title}}</h5>
-              <div class="progress" style="height:10px;">
-                <!--<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"></div>-->
-                <div class="progress-bar" role="progressbar"
-                     [style.background]="getRandomColor()"
-                     [attr.aria-valuenow]="cat.value"
-                     [style.width.%]="cat.value/cat.maxValue*100"
-                     [attr.aria-valuemax]="cat.maxValue"
-                     aria-valuemin="0"></div>
+
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row" *ngFor="let cat of yearData.categories" style="margin: 6px,6px,0,6px">
+                <div class="col-md-6" >
+                  <label>{{cat.title}}</label>
+                  <div class="progress" style="height:10px;">
+                    <!--<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"></div>-->
+                    <div class="progress-bar" role="progressbar"
+                         [style.background]="getRandomColor()"
+                         [attr.aria-valuenow]="cat.value"
+                         [style.width.%]="cat.value/cat.maxValue*100"
+                         [attr.aria-valuemax]="cat.maxValue"
+                         aria-valuemin="0"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container">
+              <div *ngFor="let cat of yearData.categories" style="margin: 6px,6px,0,6px">
+                <h5>{{cat.title}}</h5>
+                <div class="progress" style="height:10px;">
+                  <!--<div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="4" aria-valuemin="0" aria-valuemax="10"></div>-->
+                  <div class="progress-bar" role="progressbar"
+                       [style.background]="getRandomColor()"
+                       [attr.aria-valuenow]="cat.value"
+                       [style.width.%]="cat.value/cat.maxValue*100"
+                       [attr.aria-valuemax]="cat.maxValue"
+                       aria-valuemin="0"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
+
+
+
+
     </div>
     <div id="circles" class="col-sm-4">
       <div class="container">
@@ -51,7 +88,7 @@
           <a *ngFor="let item of values" class="dropdown-item" href="#">{{item.year}}</a>
         </div>
       </div>-->
-      <app-year-selector (selected)="onSelected($event)" ></app-year-selector>
+      <app-year-selector (selected)="onSelected($event)"></app-year-selector>
     </div>
   </div>
 </div>
