@@ -11,6 +11,7 @@ import { YearSelectorComponent } from './year-selector/year-selector.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { RoundProgressModule } from 'angular-svg-round-progressbar';
+import { CircleProgressComponent } from './circle-progress/circle-progress.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RoundProgressModule } from 'angular-svg-round-progressbar';
     HomeComponent,
     CounterComponent,
     YearSelectorComponent,
+    CircleProgressComponent,
     FetchDataComponent
   ],
   imports: [

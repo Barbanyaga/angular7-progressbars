@@ -50,44 +50,20 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-
-
-
-
     </div>
     <div id="circles" class="col-sm-4">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6" style="display: flex; align-items: center; flex-direction: column;">
-            <h6>Circle 1</h6>
-            <round-progress id="circle1"
-                            [rounded]="true"
-                            [radius]="50"
-                            [stroke]="10"
-                            [current]="yearData.circle1.value"
-                            [max]="100"></round-progress>
+          <div class="col-sm-6" >
+            <app-circle-progress title="Circle1" [value]="yearData.circle1.value" [color]="'#5E56A8'"> </app-circle-progress>
           </div>
           <div class="col-sm-6" style="display: flex; align-items: center; flex-direction: column;">
-            <h6>Circle 2</h6>
-            <round-progress id="circle2"
-                            [rounded]="true"
-                            [radius]="50"
-                            [stroke]="10"
-                            [current]="yearData.circle2.value"
-                            [max]="100"></round-progress>
+            <app-circle-progress title="Circle2" [value]="yearData.circle2.value"> </app-circle-progress>
           </div>
         </div>
       </div>
     </div>
     <div id="selectYear" class="col-sm-2">
-      <!--<div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Year
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a *ngFor="let item of values" class="dropdown-item" href="#">{{item.year}}</a>
-        </div>
-      </div>-->
       <app-year-selector (selected)="onSelected($event)"></app-year-selector>
     </div>
   </div>
